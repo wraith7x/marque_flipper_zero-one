@@ -109,4 +109,4 @@ python3 marque.py pin                 # paste output into the device build
 
 Marque is free software, licensed under the **GNU General Public License v3.0 or later** (see `LICENSE`). If you distribute a modified version, you must release your changes under the same license. It will always be free and open source.
 
-Copyright (C) 2026 <your name>
+Copyright (C) 2026 Wraith7x
