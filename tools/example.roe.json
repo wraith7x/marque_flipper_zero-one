@@ -1,0 +1,52 @@
+{
+  "schema": "marque/roe",
+  "schema_version": 1,
+  "engagement": {
+    "id": "SES-2026-0147",
+    "client": "Acme Manufacturing, Inc.",
+    "authorized_by": "J. Okafor, VP Security (Acme)",
+    "tester_org": "Superior Environmental Solutions - Red Team",
+    "emergency_contact": "+1-513-555-0142 (Acme SOC, 24/7)"
+  },
+  "window": {
+    "not_before": "2026-11-17T22:00:00-05:00",
+    "not_after":  "2026-11-18T02:00:00-05:00"
+  },
+  "scope": {
+    "subghz": {
+      "rx": true,
+      "tx": true,
+      "freq_ranges_hz": [[433050000, 434790000], [315000000, 315000000]],
+      "protocols": ["Princeton", "CAME", "NiceFlo"]
+    },
+    "rfid_125k": {
+      "read": true,
+      "emulate": true,
+      "write": false,
+      "allow_uids": ["EM4100:1A2B3C4D5E"],
+      "allow_facility_codes": [42]
+    },
+    "nfc": {
+      "read": true,
+      "emulate": true,
+      "write": false,
+      "allow_uids": ["04A1B2C3D4E5F6"]
+    },
+    "infrared": { "tx": false },
+    "badusb":   { "run": false },
+    "gpio_wifi":{ "run": false },
+    "network": {
+      "allow_cidrs": ["10.20.0.0/24", "10.20.5.10/32"],
+      "allow_port_ranges": [[22, 22], [80, 443], [8000, 8100]]
+    }
+  },
+  "no_go": {
+    "note": "Never interact with these - safety/life-critical.",
+    "uids": ["EM4100:00DEADBEEF", "04FFFFFFFFFFFF"],
+    "freqs_hz": [868000000]
+  },
+  "limits": {
+    "max_tx_per_minute": 30
+  },
+  "nonce": "b7f3a1c902e84d16"
+}

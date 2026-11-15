@@ -1,0 +1,27 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Flipper Zero application manifest for Marque.
+# Build with the Flipper firmware build tool:  ./fbt fap_marque
+# (place this app under applications_user/marque in a firmware checkout,
+#  or build out-of-tree against the SDK).
+
+App(
+    appid="marque",
+    name="Marque",
+    apptype=FlipperAppType.EXTERNAL,
+    entry_point="marque_app",
+    stack_size=4 * 1024,
+    fap_category="Tools",
+    fap_icon="marque_10px.png",
+    fap_description="Enforce Rules of Engagement: load a signed scope token, "
+                    "refuse out-of-scope RF/NFC/RFID actions, log every attempt.",
+    fap_author="Brian / SES Red Team",
+    fap_version="0.1",
+    # Vendor Monocypher under zero/lib/monocypher and add it to the sources,
+    # or add it as an fap library. It supplies sl_ed25519_verify().
+    sources=[
+        "*.c",
+        "../core/scope_token.c",
+        "crypto_backend_monocypher.c",
+        "lib/monocypher/monocypher.c",
+    ],
+)
